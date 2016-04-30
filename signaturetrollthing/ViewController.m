@@ -23,14 +23,18 @@
     NSMutableData *data;
 }
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-@property (weak, nonatomic) IBOutlet UIImageView *welcome;
+@property (weak, nonatomic) IBOutlet UILabel *welcome;
 @property (weak, nonatomic) IBOutlet UIImageView *tempImage;
 @property (weak, nonatomic) IBOutlet UIImageView *realImage;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) NSString *imageString;
 @end
 
 @implementation ViewController
+
+NSString *responseText;
+
 - (IBAction)clear:(id)sender {
     self.realImage.image = nil;
 }
@@ -67,7 +71,7 @@
     _clearButton.hidden = YES;
     _doneButton.hidden = YES;
     _welcome.hidden = NO;
-    
+    _nameLabel.hidden = NO;
 
 
     
@@ -96,13 +100,10 @@
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
-<<<<<<< HEAD
     _welcome.hidden = YES;
-=======
-
+    _nameLabel.hidden = YES;
     data = [[NSMutableData alloc]init];
     
->>>>>>> a8f9e7ba03339bfacf279a2225121fc07c052810
     [super viewDidLoad];
 }
 
@@ -122,8 +123,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"didfinishLoading%@",responseText);
+    _nameLabel.text = responseText;
     
 }
 

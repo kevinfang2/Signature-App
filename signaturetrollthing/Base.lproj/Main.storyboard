@@ -44,9 +44,18 @@
                                     <action selector="done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cds-f0-9GQ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-jt-R4H">
-                                <rect key="frame" x="171" y="49" width="321" height="128"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-vg-Wg8">
+                                <rect key="frame" x="230" y="151" width="240" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.77441420084014978" blue="0.10174090051727425" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWk-yj-xMe">
+                                <rect key="frame" x="159" y="76" width="234" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="50"/>
+                                <color key="textColor" red="0.21872892305481351" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,9 +75,10 @@
                     <connections>
                         <outlet property="clearButton" destination="Eri-fB-qIm" id="4tg-1y-Nag"/>
                         <outlet property="doneButton" destination="XI5-OF-iy4" id="t0u-ED-re0"/>
+                        <outlet property="nameLabel" destination="R5W-vg-Wg8" id="Bhg-o5-d28"/>
                         <outlet property="realImage" destination="WWB-pG-tJS" id="fW7-kS-0rB"/>
                         <outlet property="tempImage" destination="Hsg-3h-iSB" id="6fG-Rx-jEt"/>
-                        <outlet property="welcome" destination="2RF-jt-R4H" id="SLP-GD-NsC"/>
+                        <outlet property="welcome" destination="wWk-yj-xMe" id="uh5-oA-AEM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,7 +86,4 @@
             <point key="canvasLocation" x="245" y="337"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="welcome" width="339" height="125"/>
-    </resources>
 </document>
