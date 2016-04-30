@@ -10,7 +10,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 #import <Twitter/Twitter.h>
-//#import <Firebase/Firebase.h>
+#import <Firebase/Firebase.h>
 
 @interface ViewController (){
     CGPoint lastPoint;
@@ -34,35 +34,45 @@
 - (IBAction)done:(id)sender {
     NSString *imageString = [self encodeToBase64String:_realImage.image];
     
-//    Firebase *myRootRef = [[[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"] childByAppendingPath:@"image"];
-//    [myRootRef setValue:[NSString stringWithFormat:@"%@",imageString]];
+    Firebase *myRootRef = [[[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"] childByAppendingPath:@"image"];
+    [myRootRef setValue:[NSString stringWithFormat:@"%@",imageString]];
     //    _realImage.image = [self decodeBase64ToImage:imageString];
     
-    NSString *post = [NSString stringWithFormat:@"image=%@",imageString];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://e02e18e8.ngrok.io/login"]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [conn start];
+    
+    
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        NSLog(@"Do some work");
+        NSString *post = [NSString stringWithFormat:@""];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"https://e02e18e8.ngrok.io/login"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
+        NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        [conn start];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You're done"
+                                                        message:@"Nice signature"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Same"
+                                              otherButtonTitles:nil];
+        [alert show];
+    });
 
     
     self.realImage.image = nil;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You're done"
-                                                    message:@"Nice signature"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Same"
-                                          otherButtonTitles:nil];
-    [alert show];
+    
 }
 
 - (NSString *)encodeToBase64String:(UIImage *)image {
-    return [UIImageJPEGRepresentation(image,0.000000001) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    return [UIImageJPEGRepresentation(image,5) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    
 }
 
 
