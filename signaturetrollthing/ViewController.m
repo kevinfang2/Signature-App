@@ -11,6 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <Twitter/Twitter.h>
 #import <Firebase/Firebase.h>
+#import <BALoadingView/BALoadingView.h>
 
 @interface ViewController (){
     CGPoint lastPoint;
@@ -21,6 +22,7 @@
     CGFloat opacity;
     BOOL mouseSwiped;
     NSMutableData *data;
+    BALoadingView * bg;
 }
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UILabel *welcome;
@@ -61,17 +63,36 @@ NSString *responseText;
         [request setHTTPBody:postData];
         NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
         [conn start];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You're done"
-                                                        message:@"Nice signature"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Same"
-                                              otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You're done"
+//                                                        message:@"Nice signature"
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"Same"
+//                                              otherButtonTitles:nil];
+//        [alert show];
     });
+    
+    int size = 150;
+    bg = [[BALoadingView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - size/2, self.view.frame.size.height/2 - size/2,size, size)];
+    [bg initialize];
+    [bg startAnimation:BACircleAnimationFullCircle];
+    bg.alpha = 0.0f;
+    [UIView animateWithDuration:0.4 animations:^() {
+        bg.alpha = 1.0f;
+    }];
+    
+//    bg.frame =
+    [self.view addSubview:bg];
+    
     _clearButton.hidden = YES;
     _doneButton.hidden = YES;
     _welcome.hidden = NO;
+    _welcome.alpha = 0;
     _nameLabel.hidden = NO;
+    _nameLabel.alpha = 0;
+    
+    _welcome.frame = CGRectMake(_welcome.frame.origin.x, _welcome.frame.origin.y, self.view.frame.size.width, _welcome.frame.size.height);
+    
+    _nameLabel.frame = CGRectMake(_nameLabel.frame.origin.x, _nameLabel.frame.origin.y, self.view.frame.size.width, _nameLabel.frame.size.height);
 
 
     
@@ -126,6 +147,32 @@ NSString *responseText;
     responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"didfinishLoading%@",responseText);
     _nameLabel.text = responseText;
+    
+    [UIView animateWithDuration:0.2 animations:^() {
+        bg.alpha = 0.0f;
+    }];
+    
+    double delayInSeconds = 0.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    
+        [UIView animateWithDuration:0.4 animations:^() {
+//            _nameLabel.alpha = 1.0f;
+            _welcome.alpha = 1.0f;
+        }];
+        
+    });
+    
+    delayInSeconds = 0.4;
+    popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        [UIView animateWithDuration:0.4 animations:^() {
+            _nameLabel.alpha = 1.0f;
+//            _welcome.alpha = 1.0f;
+        }];
+        
+    });
     
 }
 

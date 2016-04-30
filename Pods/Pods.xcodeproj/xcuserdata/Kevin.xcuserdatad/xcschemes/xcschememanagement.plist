@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BALoadingView-BALoadingView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BALoadingView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>26896DD49340B40270ACE3660EE870B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4529BBFC6919487BB795D78A92724F19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>496953AC690E7E95A3AE0C8180924FC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>569735B422E0E4CEEFC5C6955AFDE3A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>907EF18C6E33830B13879902A16FD23F</key>
+		<key>8BAB10E1352E459B00B286F03C740580</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C267EE8C7E9FCD500EB7914444A9423</key>
+		<key>9A0A5F2D014EB7C8F46EB93AEC7ED677</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C06900910C3A6326D437273407CBB0AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EE622B994F129D0E4740B9BC16A4F5F5</key>
+		<key>A9A43461125134AF04028325C96052ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

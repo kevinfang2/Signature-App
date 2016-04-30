@@ -1,10 +1,13 @@
 PODS:
+  - BALoadingView (0.1.0)
   - Firebase (2.5.1)
 
 DEPENDENCIES:
+  - BALoadingView (~> 0.1)
   - Firebase (>= 2.5.1)
 
 SPEC CHECKSUMS:
+  BALoadingView: 3117f79ee2307f35d3d097ae11fb092a4e185487
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
 
 COCOAPODS: 0.39.0
