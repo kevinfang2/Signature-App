@@ -21,6 +21,8 @@
     CGFloat opacity;
     BOOL mouseSwiped;
 }
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIImageView *welcome;
 @property (weak, nonatomic) IBOutlet UIImageView *tempImage;
 @property (weak, nonatomic) IBOutlet UIImageView *realImage;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
@@ -37,7 +39,6 @@
     Firebase *myRootRef = [[[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"] childByAppendingPath:@"image"];
     [myRootRef setValue:[NSString stringWithFormat:@"%@",imageString]];
     //    _realImage.image = [self decodeBase64ToImage:imageString];
-    
     
     
     double delayInSeconds = 0.5;
@@ -62,11 +63,14 @@
                                               otherButtonTitles:nil];
         [alert show];
     });
+    _clearButton.hidden = YES;
+    _doneButton.hidden = YES;
+    _welcome.hidden = NO;
+    
+
 
     
     self.realImage.image = nil;
-    
-    
 }
 
 - (NSString *)encodeToBase64String:(UIImage *)image {
@@ -91,8 +95,7 @@
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
-
-    
+    _welcome.hidden = YES;
     [super viewDidLoad];
 }
 

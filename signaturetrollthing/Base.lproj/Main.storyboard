@@ -44,6 +44,9 @@
                                     <action selector="done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cds-f0-9GQ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="2RF-jt-R4H">
+                                <rect key="frame" x="171" y="49" width="321" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -62,8 +65,10 @@
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="Eri-fB-qIm" id="4tg-1y-Nag"/>
+                        <outlet property="doneButton" destination="XI5-OF-iy4" id="t0u-ED-re0"/>
                         <outlet property="realImage" destination="WWB-pG-tJS" id="fW7-kS-0rB"/>
                         <outlet property="tempImage" destination="Hsg-3h-iSB" id="6fG-Rx-jEt"/>
+                        <outlet property="welcome" destination="2RF-jt-R4H" id="SLP-GD-NsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -71,4 +76,7 @@
             <point key="canvasLocation" x="245" y="337"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="welcome" width="339" height="125"/>
+    </resources>
 </document>
