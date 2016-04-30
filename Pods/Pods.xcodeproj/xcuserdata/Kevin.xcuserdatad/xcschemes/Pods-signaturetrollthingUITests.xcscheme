@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '29EF9A4DC068D3F528E887CB'
+               BlueprintIdentifier = 'AD9C43CF1091E33002680DA4'
                BlueprintName = 'Pods-signaturetrollthingUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-signaturetrollthingUITests.a'>

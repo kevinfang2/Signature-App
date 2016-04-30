@@ -10,7 +10,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 #import <Twitter/Twitter.h>
-#import <Firebase/Firebase.h>
+//#import <Firebase/Firebase.h>
 
 @interface ViewController (){
     CGPoint lastPoint;
@@ -34,9 +34,23 @@
 - (IBAction)done:(id)sender {
     NSString *imageString = [self encodeToBase64String:_realImage.image];
     
-    Firebase *myRootRef = [[[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"] childByAppendingPath:@"image"];
-    [myRootRef setValue:[NSString stringWithFormat:@"%@",imageString]];
+//    Firebase *myRootRef = [[[Firebase alloc] initWithUrl:@"https://signatureauthentication.firebaseIO.com"] childByAppendingPath:@"image"];
+//    [myRootRef setValue:[NSString stringWithFormat:@"%@",imageString]];
     //    _realImage.image = [self decodeBase64ToImage:imageString];
+    
+    NSString *post = [NSString stringWithFormat:@"image=%@",imageString];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"https://e02e18e8.ngrok.io/login"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [conn start];
+
+    
     self.realImage.image = nil;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You're done"
