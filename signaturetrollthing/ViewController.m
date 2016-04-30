@@ -20,6 +20,7 @@
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    NSMutableData *data;
 }
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIImageView *welcome;
@@ -95,9 +96,37 @@
     blue = 0.0/255.0;
     brush = 10.0;
     opacity = 1.0;
+<<<<<<< HEAD
     _welcome.hidden = YES;
+=======
+
+    data = [[NSMutableData alloc]init];
+    
+>>>>>>> a8f9e7ba03339bfacf279a2225121fc07c052810
     [super viewDidLoad];
 }
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [data setLength:0];
+    NSHTTPURLResponse *resp= (NSHTTPURLResponse *) response;
+    NSLog(@"got responce with status @push %d",[resp statusCode]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d
+{
+    [data appendData:d];
+    NSLog(@"recieved data @push %@", data);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"didfinishLoading%@",responseText);
+    
+}
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
