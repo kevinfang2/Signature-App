@@ -20,6 +20,7 @@
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    NSMutableData *data;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *tempImage;
 @property (weak, nonatomic) IBOutlet UIImageView *realImage;
@@ -92,9 +93,32 @@
     brush = 10.0;
     opacity = 1.0;
 
+    data = [[NSMutableData alloc]init];
     
     [super viewDidLoad];
 }
+
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    [data setLength:0];
+    NSHTTPURLResponse *resp= (NSHTTPURLResponse *) response;
+    NSLog(@"got responce with status @push %d",[resp statusCode]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d
+{
+    [data appendData:d];
+    NSLog(@"recieved data @push %@", data);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSString *responseText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"didfinishLoading%@",responseText);
+    
+}
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
