@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWB-pG-tJS" userLabel="realImage">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-3h-iSB" userLabel="tempImage">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eri-fB-qIm">
+                                <rect key="frame" x="1" y="2" width="111" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ue7-Nv-ZZ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI5-OF-iy4">
+                                <rect key="frame" x="508" y="6" width="88" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cds-f0-9GQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XI5-OF-iy4" secondAttribute="trailing" constant="4" id="CbX-fH-FOB"/>
+                            <constraint firstItem="XI5-OF-iy4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="6" id="GH5-vL-C76"/>
+                            <constraint firstAttribute="bottom" secondItem="WWB-pG-tJS" secondAttribute="bottom" id="N8i-tE-O1Y"/>
+                            <constraint firstAttribute="bottom" secondItem="Hsg-3h-iSB" secondAttribute="bottom" id="Pv8-kG-d2A"/>
+                            <constraint firstAttribute="trailing" secondItem="Hsg-3h-iSB" secondAttribute="trailing" id="cXM-Fe-qgV"/>
+                            <constraint firstItem="Hsg-3h-iSB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cdl-La-jYP"/>
+                            <constraint firstItem="Hsg-3h-iSB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dJ7-Vg-e0k"/>
+                            <constraint firstItem="WWB-pG-tJS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e1a-Tx-aLC"/>
+                            <constraint firstItem="WWB-pG-tJS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ouP-oW-FOb"/>
+                            <constraint firstItem="XI5-OF-iy4" firstAttribute="leading" secondItem="Eri-fB-qIm" secondAttribute="trailing" constant="396" id="uog-RC-6M0"/>
+                            <constraint firstAttribute="trailing" secondItem="WWB-pG-tJS" secondAttribute="trailing" id="ze4-6S-60y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clearButton" destination="Eri-fB-qIm" id="4tg-1y-Nag"/>
+                        <outlet property="realImage" destination="WWB-pG-tJS" id="fW7-kS-0rB"/>
+                        <outlet property="tempImage" destination="Hsg-3h-iSB" id="6fG-Rx-jEt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="337"/>
+        </scene>
+    </scenes>
+</document>
