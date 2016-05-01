@@ -23,6 +23,7 @@
     BOOL mouseSwiped;
     NSMutableData *data;
     BALoadingView * bg;
+    __weak IBOutlet UIButton *reAuthButton;
 }
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UILabel *welcome;
@@ -36,6 +37,14 @@
 @implementation ViewController
 
 NSString *responseText;
+- (IBAction)reauthenticate:(id)sender {
+    _welcome.hidden = YES;
+    _nameLabel.hidden = YES;
+    _clearButton.hidden = NO;
+    _doneButton.hidden = NO;
+    reAuthButton.hidden = YES;
+    data = [[NSMutableData alloc]init];
+}
 
 - (IBAction)clear:(id)sender {
     self.realImage.image = nil;
@@ -82,19 +91,20 @@ NSString *responseText;
     
 //    bg.frame =
     [self.view addSubview:bg];
-    
     _clearButton.hidden = YES;
     _doneButton.hidden = YES;
     _welcome.hidden = NO;
     _welcome.alpha = 0;
     _nameLabel.hidden = NO;
     _nameLabel.alpha = 0;
+    reAuthButton.hidden = NO;
+    reAuthButton.alpha = 0;
     
     _welcome.frame = CGRectMake(_welcome.frame.origin.x, _welcome.frame.origin.y, self.view.frame.size.width, _welcome.frame.size.height);
     
     _nameLabel.frame = CGRectMake(_nameLabel.frame.origin.x, _nameLabel.frame.origin.y, self.view.frame.size.width, _nameLabel.frame.size.height);
 
-
+    reAuthButton.frame = CGRectMake(reAuthButton.frame.origin.x, reAuthButton.frame.origin.y, self.view.frame.size.width, reAuthButton.frame.size.height);
     
     self.realImage.image = nil;
 }
@@ -116,6 +126,7 @@ NSString *responseText;
 }
 - (void)viewDidLoad
 {
+    
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
@@ -124,7 +135,7 @@ NSString *responseText;
     _welcome.hidden = YES;
     _nameLabel.hidden = YES;
     data = [[NSMutableData alloc]init];
-    
+    reAuthButton.hidden = YES;
     [super viewDidLoad];
 }
 
@@ -170,9 +181,11 @@ NSString *responseText;
         [UIView animateWithDuration:0.4 animations:^() {
             _nameLabel.alpha = 1.0f;
 //            _welcome.alpha = 1.0f;
+            reAuthButton.alpha = 1.0f;
         }];
         
     });
+    
     
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +41,7 @@
                                     <action selector="done:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cds-f0-9GQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-vg-Wg8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5W-vg-Wg8">
                                 <rect key="frame" x="1" y="151" width="666" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="highlightedColor"/>
@@ -55,6 +55,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hsg-3h-iSB" userLabel="tempImage">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtw-v1-ne3">
+                                <rect key="frame" x="233" y="288" width="201" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Reauthenticate"/>
+                                <connections>
+                                    <action selector="reauthenticate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fvg-zG-u6j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -62,10 +70,12 @@
                             <constraint firstItem="XI5-OF-iy4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="6" id="GH5-vL-C76"/>
                             <constraint firstAttribute="bottom" secondItem="WWB-pG-tJS" secondAttribute="bottom" id="N8i-tE-O1Y"/>
                             <constraint firstAttribute="bottom" secondItem="Hsg-3h-iSB" secondAttribute="bottom" id="Pv8-kG-d2A"/>
+                            <constraint firstItem="dtw-v1-ne3" firstAttribute="top" secondItem="R5W-vg-Wg8" secondAttribute="bottom" constant="101" id="Sgc-fj-K5i"/>
                             <constraint firstAttribute="trailing" secondItem="Hsg-3h-iSB" secondAttribute="trailing" id="cXM-Fe-qgV"/>
                             <constraint firstItem="Hsg-3h-iSB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cdl-La-jYP"/>
                             <constraint firstItem="Hsg-3h-iSB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dJ7-Vg-e0k"/>
                             <constraint firstItem="WWB-pG-tJS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e1a-Tx-aLC"/>
+                            <constraint firstItem="dtw-v1-ne3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gkb-SS-3Bp"/>
                             <constraint firstItem="WWB-pG-tJS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ouP-oW-FOb"/>
                             <constraint firstItem="XI5-OF-iy4" firstAttribute="leading" secondItem="Eri-fB-qIm" secondAttribute="trailing" constant="396" id="uog-RC-6M0"/>
                             <constraint firstAttribute="trailing" secondItem="WWB-pG-tJS" secondAttribute="trailing" id="ze4-6S-60y"/>
@@ -77,6 +87,7 @@
                         <outlet property="clearButton" destination="Eri-fB-qIm" id="4tg-1y-Nag"/>
                         <outlet property="doneButton" destination="XI5-OF-iy4" id="t0u-ED-re0"/>
                         <outlet property="nameLabel" destination="R5W-vg-Wg8" id="Bhg-o5-d28"/>
+                        <outlet property="reAuthButton" destination="dtw-v1-ne3" id="bt8-X1-rte"/>
                         <outlet property="realImage" destination="WWB-pG-tJS" id="fW7-kS-0rB"/>
                         <outlet property="tempImage" destination="Hsg-3h-iSB" id="6fG-Rx-jEt"/>
                         <outlet property="welcome" destination="wWk-yj-xMe" id="uh5-oA-AEM"/>
